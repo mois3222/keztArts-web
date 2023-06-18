@@ -3,7 +3,7 @@
 // @use "../normalize/normalize.css";
 
 $font-size: 16px;
-$font-family: "IBM Plex Sans", sans-serif;
+$font-family: "Geologica", sans-serif;
 $text-primary: #b6b6b6;
 $text-secondary: #ecececec;
 $bg-primary: #23232e;
@@ -17,103 +17,158 @@ $fill-color: #f66f3e;
   align-items: center;
 }
 
+%decoration-none {
+  text-decoration: none;
+  color: $text-primary;
+}
+
+@mixin display($size) {
+  @if $size == 16rem {
+    .link-text {
+      display: block;
+    }
+    .logo-text {
+      display: block;
+    }
+  }
+}
+
 * {
   font-family: $font-family;
 }
 
 header {
-  .navbar {
+  nav {
+    @extend %flex;
+    justify-content: start;
     width: 5rem;
-    height: 100vh;
-    position: fixed;
     background: $bg-primary;
-    transition: width 200ms ease;
+    height: 100vh;
 
-    .link-text,
-    #logo-text {
-      display: none;
+    &:hover {
+      width: 16rem;
+      @include display(16rem);
     }
 
-    .navbar-nav {
-      list-style: none;
-      padding: 0;
+    ul {
       @extend %flex;
       flex-direction: column;
       justify-content: space-around;
-      height: 85%;
-      margin-top: 0px;
+      list-style: none;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
 
       .logo {
         @extend %flex;
-        background-color: $bg-secondary;
         width: 100%;
-        height: 60vh;
-
-        .nav-logo {
+        height: 30%;
+        background: $bg-secondary;
+        margin-top: 0;
+        a {
+          @extend %decoration-none;
           @extend %flex;
-          gap: 0.5rem;
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: $text-secondary;
-          text-align: center;
-          text-transform: uppercase;
-          text-decoration: none;
+          width: 100%;
+          // justify-content: space-around;
+          flex-direction: column;
+          gap: 2.5rem;
+          color: #23232e;
           svg {
-            height: 3rem;
+            height: 5rem;
             fill: $fill-color;
+          }
+
+          div {
+            position: relative;
+            h2 {
+              display: none;
+              font-size: 3rem;
+              font-weight: bold;
+              position: absolute;
+            }
+
+            .logo-border {
+              text-shadow: -1px -1px 0 white, -1px -1px 0 white,
+                -1px -1px 0 white, -1px -1px 0 white;
+            }
+
+            .logo-wave {
+              color: $fill-color;
+              animation: wave 3s ease-in-out infinite;
+            }
           }
         }
       }
 
-      .div-nav {
+      div {
+        @extend %flex;
+        // justify-content: start;
+        flex-direction: column;
         width: 100%;
-        height: auto;
+        height: 75%;
+        li {
+          @extend %flex;
+          justify-content: start;
+          width: 100%;
 
-        .nav-item {
-          &:last-child {
-            margin-top: auto;
-          }
-
+          height: 10vh;
           &:first-child {
             display: none;
           }
 
-          .nav-link {
+          filter: grayscale(100%) opacity(0.7);
+          &:hover {
+            filter: grayscale(0%) opacity(1);
+            background: $bg-secondary;
+          }
+
+          a {
+            @extend %decoration-none;
             @extend %flex;
-            justify-content: start;
-            // justify-content: center;
-            height: 5rem;
-            color: $text-primary;
-            text-decoration: none;
-            filter: grayscale(100%) opacity(0.7);
-            transition: $transition-speed;
-
-            &:hover {
-              filter: grayscale(0%) opacity(1);
-              background: $bg-secondary;
-              color: $text-secondary;
-            }
-
             svg {
-              height: 2rem;
-              fill: $fill-color;
-              margin: 0 1.5rem;
-            }
-
-            .link-text {
               margin-left: 1rem;
+              height: 2.5rem;
+              fill: $fill-color;
+            }
+            span {
+              display: none;
+              margin-left: 5rem;
             }
           }
         }
       }
     }
+  }
+}
 
-    &:hover {
-      width: 16rem;
-      .link-text,
-      #logo-text {
-        display: block;
-      }
-    }
+@keyframes wave {
+  0%,
+  100% {
+    clip-path: polygon(
+      0% 47%,
+      10% 48%,
+      35% 54%,
+      54% 60%,
+      70% 61%,
+      84% 59%,
+      100% 52%,
+      100% 100%,
+      0% 100%
+    );
+  }
+
+  50% {
+    clip-path: polygon(
+      0% 60%,
+      15% 65%,
+      54% 66%,
+      51% 62%,
+      67% 50%,
+      84% 45%,
+      100% 46%,
+      100% 100%,
+      0% 100%
+    );
   }
 }
