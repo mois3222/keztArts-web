@@ -9,6 +9,7 @@ class Header {
   render() {
     this.navbarElement.className = "navbar";
     this.navbarElement.innerHTML = view;
+
     return this.navbarElement;
   }
 }

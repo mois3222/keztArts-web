@@ -12,6 +12,10 @@ $bg-secondary: #141418;
 $scrollbar-color: #999999; // Scrollbar track color
 $scrollbar-thumb-color: #f38c51; // Scrollbar thumb color
 
+* {
+  font-family: $font-family;
+}
+
 // Apply the styles to the scrollbar
 body::-webkit-scrollbar {
   width: 12px; // Scrollbar width
@@ -35,5 +39,99 @@ header {
     height: 100vh;
     position: fixed;
     background: $bg-primary;
+    transition: width 200ms ease;
+
+    .link-text,
+    #logo-text {
+      display: none;
+    }
+
+    .navbar-nav {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: 85%;
+      margin-top: 0px;
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $bg-secondary;
+        width: 100%;
+        height: 60vh;
+
+        .nav-logo {
+          display: flex;
+          justify-content: center;
+          gap: 0.5rem;
+          align-items: center;
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: $text-secondary;
+          text-align: center;
+          text-transform: uppercase;
+          text-decoration: none;
+          svg {
+            height: 3rem;
+            fill: #f66f3e;
+          }
+        }
+      }
+
+      .div-nav {
+        width: 100%;
+        height: auto;
+
+        .nav-item {
+          width: 100%;
+          &:last-child {
+            margin-top: auto;
+          }
+
+          &:first-child {
+            display: none;
+          }
+
+          .nav-link {
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+            height: 5rem;
+            color: $text-primary;
+            text-decoration: none;
+            filter: grayscale(100%) opacity(0.7);
+            transition: heigth 100ms ease-in;
+
+            &:hover {
+              filter: grayscale(0%) opacity(1);
+              background: $bg-secondary;
+              color: $text-secondary;
+            }
+
+            svg {
+              height: 2rem;
+              fill: #f66f3e;
+              margin: 0 1.5rem;
+            }
+
+            .link-text {
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      width: 16rem;
+      .link-text,
+      #logo-text {
+        display: block;
+      }
+    }
   }
 }
