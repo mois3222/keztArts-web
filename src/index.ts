@@ -1,7 +1,4 @@
 import "./styles/main.scss";
+import Routes from "./routes/Routes";
 
-const greetting = () => {
-  return `Hello world`;
-};
-
-console.log(greetting);
+window.addEventListener("load", Routes.renders);

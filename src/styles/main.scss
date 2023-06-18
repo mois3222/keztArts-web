@@ -1,1 +1,39 @@
+@import "../normalize/normalize.css";
 
+// @use "../normalize/normalize.css";
+
+$font-size: 16px;
+$font-family: "IBM Plex Sans", sans-serif;
+$text-primary: #b6b6b6;
+$text-secondary: #ecececec;
+$bg-primary: #23232e;
+$bg-secondary: #141418;
+// Define your custom scrollbar styles
+$scrollbar-color: #999999; // Scrollbar track color
+$scrollbar-thumb-color: #f38c51; // Scrollbar thumb color
+
+// Apply the styles to the scrollbar
+body::-webkit-scrollbar {
+  width: 12px; // Scrollbar width
+}
+
+body::-webkit-scrollbar-track {
+  background-color: $scrollbar-color;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb-color;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: darken($scrollbar-thumb-color, 10%);
+}
+
+header {
+  .navbar {
+    width: 5rem;
+    height: 100vh;
+    position: fixed;
+    background: $bg-primary;
+  }
+}
