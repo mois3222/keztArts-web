@@ -4,7 +4,7 @@
 @mixin display($size) {
   @if $size == 16rem {
     .link-text,
-    .logo-text {
+    #logo-text {
       display: block;
     }
   }
@@ -15,27 +15,8 @@
     @content;
   }
 }
-@mixin media-mobile($map) {
+@mixin media-up($map) {
   @media screen and (max-width: map-get($breakpionts, $map)) {
     @content;
-  }
-}
-
-@mixin modificator($num) {
-  @if $num == 1 {
-    content: "";
-    background: #212f3c;
-    height: 0.5rem;
-    width: 100%;
-    border-bottom: 1px solid v.$bg-secondary;
-    border-top: 1px solid v.$bg-secondary;
-  } @else if $num == 2 {
-    filter: grayscale(0) opacity(1);
-    transition: 100ms heigth ease-in-out;
-    background: v.$bg-secondary;
-  } @else if $num == 3 {
-    filter: grayscale(0) opacity(1);
-    transition: 100ms heigth ease-in-out;
-    background: none;
   }
 }
