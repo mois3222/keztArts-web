@@ -1,3 +1,5 @@
+@use "../vars/vars.scss" as v;
+
 %flex {
   display: flex;
   justify-content: center;
@@ -6,5 +8,5 @@
 
 %decoration-none {
   text-decoration: none;
-  color: $text-primary;
+  color: v.$text-primary;
 }

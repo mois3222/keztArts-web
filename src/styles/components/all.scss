@@ -1,3 +1,5 @@
+@use "../vars/vars.scss" as c;
+
 * {
-  font-family: $font-family;
+  font-family: c.$font-family;
 }

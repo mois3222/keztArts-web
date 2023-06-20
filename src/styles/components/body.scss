@@ -1,0 +1,12 @@
+@use "../breakpoints/breakpoints.scss";
+@use "../tools/mixins.scss" as mixins;
+
+body {
+  @include mixins.media-up(lg) {
+    .nav-item {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}

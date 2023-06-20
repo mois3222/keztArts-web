@@ -1,10 +1,16 @@
+@use "../breakpoints/breakpoints.scss" as *;
+
 @mixin display($size) {
   @if $size == 16rem {
-    .link-text {
-      display: block;
-    }
+    .link-text,
     .logo-text {
       display: block;
     }
+  }
+}
+
+@mixin media-up($map) {
+  @media screen and (min-width: map-get($breakpionts, $map)) {
+    @content;
   }
 }

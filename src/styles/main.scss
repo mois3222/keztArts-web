@@ -1,1 +1,14 @@
+/* Normalize css,  removes all default styles */
+@forward "./normalize/normalize.scss";
 
+/* Normalize css,  removes all default styles */
+
+@forward "./components/body.scss";
+
+/* all applies all its styles to every hash */
+@forward "./components/all.scss";
+/* all applies all its styles to every hash */
+
+/*structure web-site */
+@forward "./components/template_header.scss";
+/*structure web-site */
