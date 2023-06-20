@@ -4,13 +4,11 @@
 
 header {
   nav {
-    width: 5rem;
-    height: 100vh;
     background: v.$bg-primary;
 
     ul {
       @extend %flex;
-      flex-direction: column;
+      // flex-direction: column;
       justify-content: space-around;
       padding: 0;
       margin: 0;
@@ -19,16 +17,20 @@ header {
 
       .container-logo {
         @extend %flex;
-        height: 30%;
+        justify-content: space-between;
+        background: whitesmoke;
         li {
-          width: 100%;
+          @extend %flex;
+          width: v.$width-full;
+          height: 80%;
 
           a {
-            @extend %decoration-none;
             @extend %flex;
-            gap: 2rem;
+            @extend %decoration-none;
+            gap: 1rem;
+
             svg {
-              height: 5rem;
+              fill: v.$fill-color;
             }
 
             h2 {
@@ -39,23 +41,25 @@ header {
       }
 
       div {
-        @extend %flex;
-        flex-direction: column;
-        width: 100%;
+        // @extend %flex;
+        display: flex;
+        justify-content: space-around;
+        // flex-direction: column;
+        width: v.$width-full;
         height: 70%;
-        gap: 3rem;
         li {
           @extend %flex;
           justify-content: start;
-          flex-direction: row;
-          width: 100%;
+          width: v.$width-full;
+          height: 20%;
 
-          a {
+          .nav-link {
             @extend %flex;
             @extend %decoration-none;
-            width: 100%;
             justify-content: space-around;
-            align-items: start;
+            align-items: center;
+            height: 70%;
+            width: v.$width-full;
 
             span {
               display: none;
@@ -63,14 +67,13 @@ header {
 
             svg {
               height: 2rem;
+              fill: v.$fill-color;
             }
+            filter: grayscale(100%) opacity(0.7);
+            transition: 100ms heigth ease-in-out;
           }
         }
       }
-    }
-    &:hover {
-      width: 16rem;
-      @include mixin.display(16rem);
     }
   }
 }

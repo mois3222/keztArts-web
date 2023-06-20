@@ -1,12 +1,106 @@
 @use "../breakpoints/breakpoints.scss";
 @use "../tools/mixins.scss" as mixins;
+// @use "../extends/extend.scss";
 
 body {
-  @include mixins.media-up(lg) {
+  /* Dekstop screen */
+
+  @include mixins.media-desktop(lg) {
     .nav-item {
       &:first-child {
         display: none;
       }
     }
+
+    nav {
+      width: 4rem;
+      height: 100vh;
+      &:hover {
+        width: 16rem;
+        @include mixins.display(16rem);
+      }
+
+      ul {
+        flex-direction: column;
+        .container-logo {
+          flex-direction: column;
+          height: 30%;
+          li {
+            a {
+              svg {
+                height: 5rem;
+              }
+            }
+          }
+
+          &::after {
+            @include mixins.modificator(1);
+          }
+
+          // @include mixins.modificator(1);
+        }
+
+        div {
+          flex-direction: column;
+          li {
+            .nav-link {
+              &:hover {
+                @include mixins.modificator(2);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /* Dekstop screen */
+
+  /* Small screen */
+  @include mixins.media-mobile(lg) {
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 5rem;
+      width: 100%;
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .container-logo {
+          flex-direction: row;
+          height: 100%;
+          width: 20%;
+
+          li {
+            a {
+              svg {
+                height: 3.5rem;
+              }
+            }
+          }
+        }
+
+        div {
+          align-items: center;
+          li {
+            flex-direction: row;
+            .nav-link {
+              height: 100%;
+              &:hover {
+                @include mixins.modificator(3);
+              }
+            }
+          }
+        }
+      }
+
+      .modify {
+        display: none;
+      }
+    }
   }
 }
+/* Small screen */
