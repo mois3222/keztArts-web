@@ -1,0 +1,10 @@
+@mixin display($size) {
+  @if $size == 16rem {
+    .link-text {
+      display: block;
+    }
+    .logo-text {
+      display: block;
+    }
+  }
+}
