@@ -3,14 +3,19 @@
 @mixin display($size) {
   @if $size == 16rem {
     .link-text,
-    .logo-text {
+    #logo-text {
       display: block;
     }
   }
 }
 
-@mixin media-up($map) {
+@mixin media-max($map) {
   @media screen and (min-width: map-get($breakpionts, $map)) {
+    @content;
+  }
+}
+@mixin media-up($map) {
+  @media screen and (max-width: map-get($breakpionts, $map)) {
     @content;
   }
 }

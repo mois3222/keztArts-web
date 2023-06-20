@@ -1,6 +1,7 @@
 @use "../vars/vars.scss" as v;
 @use "../extends/extend.scss";
-@use "../tools/mixins.scss" as mixin;
+@use "../tools/mixins.scss" as mixins;
+@use "../breakpoints/breakpoints.scss" as *;
 
 header {
   nav {
@@ -15,23 +16,24 @@ header {
       padding: 0;
       margin: 0;
       list-style: none;
-      height: 100%;
+      height: v.$full;
 
-      .container-logo {
+      .logo-container {
         @extend %flex;
         height: 30%;
         li {
-          width: 100%;
+          width: v.$full;
 
           a {
             @extend %decoration-none;
             @extend %flex;
-            gap: 2rem;
+            align-items: center;
+            gap: 1em;
             svg {
               height: 5rem;
             }
 
-            h2 {
+            #logo-text {
               display: none;
             }
           }
@@ -41,19 +43,19 @@ header {
       div {
         @extend %flex;
         flex-direction: column;
-        width: 100%;
+        width: v.$full;
         height: 70%;
         gap: 3rem;
         li {
           @extend %flex;
           justify-content: start;
           flex-direction: row;
-          width: 100%;
+          width: v.$full;
 
           a {
             @extend %flex;
             @extend %decoration-none;
-            width: 100%;
+            width: v.$full;
             justify-content: space-around;
             align-items: start;
 
@@ -68,9 +70,105 @@ header {
         }
       }
     }
-    &:hover {
-      width: 16rem;
-      @include mixin.display(16rem);
+  }
+  @include mixins.media-max(lg) {
+    .navbar {
+      .navbar-nav {
+        .logo-container {
+          .logo {
+            .nav-logo {
+              .logo-text {
+                display: none;
+              }
+            }
+          }
+        }
+        .div-nav {
+          .nav-item {
+            &:last-child {
+              display: none;
+            }
+          }
+        }
+      }
+      &:hover {
+        width: 16rem;
+        @include mixins.display(16rem);
+      }
+    }
+  }
+
+  @include mixins.media-up(lg) {
+    .navbar {
+      width: v.$full;
+      height: 6rem;
+
+      .navbar-nav {
+        flex-direction: column;
+        .logo-container {
+          margin-top: 1rem;
+          .logo {
+            .nav-logo {
+              display: flex;
+              justify-content: start;
+              svg {
+                height: 2.5rem;
+                margin-left: 1rem;
+              }
+              #logo-text {
+                margin: 4px 16px 0;
+                display: block;
+              }
+            }
+          }
+        }
+        .div-nav {
+          flex-direction: row;
+          gap: 1em;
+          .nav-item {
+            &:last-child {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mixins.media-up(sm) {
+    .navbar {
+      width: v.$full;
+      height: 6rem;
+
+      .navbar-nav {
+        flex-direction: column;
+        .logo-container {
+          margin-top: 1rem;
+          .logo {
+            .nav-logo {
+              display: flex;
+              justify-content: start;
+              svg {
+                height: 2.5rem;
+                margin-left: 1rem;
+              }
+              #logo-text {
+                margin: 4px 16px 0;
+                display: block;
+              }
+            }
+          }
+        }
+        .div-nav {
+          flex-direction: row;
+          gap: 1em;
+          .nav-item {
+            &:last-child {
+              display: block;
+            }
+          }
+        }
+      }
     }
   }
 }
