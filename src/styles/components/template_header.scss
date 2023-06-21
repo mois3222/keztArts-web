@@ -30,6 +30,7 @@ header {
             gap: 2rem;
             svg {
               height: 5rem;
+              fill: #d7dbdd;
             }
 
             #logo-text {
@@ -39,7 +40,7 @@ header {
         }
       }
 
-      div {
+      .div-nav {
         @extend %flex;
         flex-direction: column;
         width: 100%;
@@ -47,8 +48,8 @@ header {
         li {
           @extend %flex;
           justify-content: start;
-          flex-direction: row;
-          width: 100%;
+          flex-direction: column;
+          width: v.$full;
 
           .nav-link {
             @extend %flex;
@@ -68,13 +69,126 @@ header {
               height: 2rem;
               fill: v.$fill-color;
             }
+
+            filter: grayscale(100%) opacity(0.7);
+            transition: v.$transition-speed;
+
+            &:hover {
+              filter: grayscale(0) opacity(1);
+            }
+          }
+
+          &:hover {
+            &::after {
+              content: "";
+              width: 70%;
+              height: 4px;
+              margin-top: 1rem;
+              background: v.$bg-secondary;
+            }
           }
         }
       }
     }
-    &:hover {
-      width: 16rem;
-      @include mixin.display(16rem);
+  }
+  @include mixins.media-max(lg) {
+    .navbar {
+      .navbar-nav {
+        .logo-container {
+          .logo {
+            .nav-logo {
+              .logo-text {
+                display: none;
+              }
+            }
+          }
+        }
+        .div-nav {
+          .nav-item {
+            &:last-child {
+              display: none;
+            }
+          }
+        }
+      }
+      &:hover {
+        width: 16rem;
+        @include mixins.display(16rem);
+      }
+    }
+  }
+
+  @include mixins.media-up(lg) {
+    .navbar {
+      width: v.$full;
+      height: 7rem;
+
+      .navbar-nav {
+        flex-direction: column;
+        .logo-container {
+          margin-top: 1rem;
+          .logo {
+            .nav-logo {
+              display: flex;
+              justify-content: start;
+              svg {
+                height: 2.5rem;
+                margin-left: 1rem;
+              }
+              #logo-text {
+                margin: 4px 16px 0;
+                display: block;
+              }
+            }
+          }
+        }
+        .div-nav {
+          flex-direction: row;
+          gap: 1em;
+          .nav-item {
+            &:last-child {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mixins.media-up(sm) {
+    .navbar {
+      width: v.$full;
+      height: 6rem;
+
+      .navbar-nav {
+        flex-direction: column;
+        .logo-container {
+          margin-top: 1rem;
+          .logo {
+            .nav-logo {
+              display: flex;
+              justify-content: start;
+              svg {
+                height: 2.5rem;
+                margin-left: 1rem;
+              }
+              #logo-text {
+                margin: 4px 16px 0;
+                display: block;
+              }
+            }
+          }
+        }
+        .div-nav {
+          flex-direction: row;
+          gap: 1em;
+          .nav-item {
+            &:last-child {
+              display: block;
+            }
+          }
+        }
+      }
     }
   }
 }
