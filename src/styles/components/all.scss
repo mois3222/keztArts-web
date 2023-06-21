@@ -1,5 +1,18 @@
 @use "../vars/vars.scss" as c;
+@use "../tools/mixins.scss" as mixins;
+@use "../breakpoints/breakpoints.scss" as *;
 
 * {
   font-family: c.$font-family;
+}
+
+body {
+  display: flex;
+  position: relative;
+  padding-bottom: 7em;
+  min-height: 100vh;
+
+  @include mixins.media-up(lg) {
+    flex-direction: column;
+  }
 }
