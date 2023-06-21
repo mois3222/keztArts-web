@@ -12,12 +12,11 @@ class Home {
     this.sectionElement.innerHTML = view;
     const homeContainer = this.sectionElement.querySelector(".home-container");
 
-    gameService.getGame.forEach((item) => {
+    gameService.getGame.forEach((game) => {
       if (homeContainer) {
-        homeContainer.innerHTML += `<div>
+        homeContainer.innerHTML += `<div style="background-image: url(${game.image})">
         <a href="3" class="Home-link">
-        <img src=${item.image}>
-          <h3>${item.name}</h3>
+          <h3>${game.name}</h3>
         </a>
       </div>`;
       }
