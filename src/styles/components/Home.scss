@@ -1,9 +1,20 @@
+@use "../extends/extend.scss";
 main {
   width: 100vw;
   section {
+    display: flex;
     height: 100vh;
     .home-container {
       display: flex;
+      .games {
+        @extend %flex;
+        width: 10vw;
+        background-repeat: no-repeat;
+        background-size: cover;
+        a {
+          @extend %decoration-none;
+        }
+      }
     }
   }
 }

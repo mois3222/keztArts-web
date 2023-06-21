@@ -14,7 +14,7 @@ class Home {
 
     gameService.getGame.forEach((game) => {
       if (homeContainer) {
-        homeContainer.innerHTML += `<div style="background-image: url(${game.image})">
+        homeContainer.innerHTML += `<div class="games" style="background-image: url(${game.image})">
         <a href="3" class="Home-link">
           <h3>${game.name}</h3>
         </a>
