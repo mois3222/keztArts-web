@@ -1,5 +1,9 @@
 import "./styles/main.scss";
 import Routes from "./routes/Routes";
 
-window.addEventListener("load", Routes.renders);
+const routes = Routes.getInstance();
+
+window.addEventListener("load", () => {
+  routes.renders();
+});
 console.log("working..");

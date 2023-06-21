@@ -130,6 +130,7 @@ header {
         flex-direction: column;
         .logo-container {
           margin-top: 1rem;
+          width: v.$full;
           .logo {
             .nav-logo {
               display: flex;
@@ -161,12 +162,13 @@ header {
   @include mixins.media-up(sm) {
     .navbar {
       width: v.$full;
-      height: 6rem;
+      height: 7rem;
 
       .navbar-nav {
         flex-direction: column;
         .logo-container {
           margin-top: 1rem;
+          margin-bottom: 1rem;
           .logo {
             .nav-logo {
               display: flex;
@@ -176,7 +178,7 @@ header {
                 margin-left: 1rem;
               }
               #logo-text {
-                margin: 4px 16px 0;
+                margin: 4px 2px 0;
                 display: block;
               }
             }
