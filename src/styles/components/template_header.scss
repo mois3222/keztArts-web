@@ -31,6 +31,7 @@ header {
             gap: 1em;
             svg {
               height: 5rem;
+              fill: #d7dbdd;
             }
 
             #logo-text {
@@ -40,7 +41,7 @@ header {
         }
       }
 
-      div {
+      .div-nav {
         @extend %flex;
         flex-direction: column;
         width: v.$full;
@@ -49,7 +50,7 @@ header {
         li {
           @extend %flex;
           justify-content: start;
-          flex-direction: row;
+          flex-direction: column;
           width: v.$full;
 
           a {
@@ -65,6 +66,24 @@ header {
 
             svg {
               height: 2rem;
+              fill: v.$fill-color;
+            }
+
+            filter: grayscale(100%) opacity(0.7);
+            transition: v.$transition-speed;
+
+            &:hover {
+              filter: grayscale(0) opacity(1);
+            }
+          }
+
+          &:hover {
+            &::after {
+              content: "";
+              width: 70%;
+              height: 4px;
+              margin-top: 1rem;
+              background: v.$bg-secondary;
             }
           }
         }
@@ -101,7 +120,7 @@ header {
   @include mixins.media-up(lg) {
     .navbar {
       width: v.$full;
-      height: 6rem;
+      height: 7rem;
 
       .navbar-nav {
         flex-direction: column;
